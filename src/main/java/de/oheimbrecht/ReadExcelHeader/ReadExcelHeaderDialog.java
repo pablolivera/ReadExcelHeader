@@ -22,13 +22,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
-import org.eclipse.swt.events.FocusListener;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.ShellAdapter;
-import org.eclipse.swt.events.ShellEvent;
+import org.eclipse.swt.events.*;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
@@ -37,26 +31,19 @@ import org.eclipse.swt.widgets.*;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.Props;
 import org.pentaho.di.core.exception.KettleException;
-// import org.pentaho.di.core.exception.KettleStepException;
 import org.pentaho.di.core.fileinput.FileInputList;
 import org.pentaho.di.core.row.RowMetaInterface;
 import org.pentaho.di.core.util.Utils;
-import org.pentaho.di.i18n.BaseMessages;
 import org.pentaho.di.trans.TransMeta;
-import org.pentaho.di.trans.steps.excelinput.SpreadSheetType;
+import org.pentaho.di.trans.step.BaseStepMeta;
+import org.pentaho.di.trans.step.StepDialogInterface;
+import org.pentaho.di.ui.core.dialog.EnterSelectionDialog;
+import org.pentaho.di.ui.core.dialog.ErrorDialog;
 import org.pentaho.di.ui.core.widget.ColumnInfo;
 import org.pentaho.di.ui.core.widget.TableView;
 import org.pentaho.di.ui.core.widget.TextVar;
-import org.pentaho.di.ui.core.dialog.EnterSelectionDialog;
-import org.pentaho.di.ui.core.dialog.ErrorDialog;
-//import org.pentaho.di.ui.core.events.dialog.FilterType;
-//import org.pentaho.di.ui.core.events.dialog.SelectionAdapterFileDialogTextVar;
-//import org.pentaho.di.ui.core.events.dialog.SelectionAdapterOptions;
-//import org.pentaho.di.ui.core.events.dialog.SelectionOperation;
 import org.pentaho.di.ui.trans.step.BaseStepDialog;
 
-import org.pentaho.di.trans.step.BaseStepMeta;
-import org.pentaho.di.trans.step.StepDialogInterface;
 
 public class ReadExcelHeaderDialog extends BaseStepDialog implements StepDialogInterface {
 	// this is the object the stores the step's settings
@@ -861,6 +848,10 @@ public class ReadExcelHeaderDialog extends BaseStepDialog implements StepDialogI
 
 		// Listen to the Browse... button
 		wbbFilename.addSelectionListener(
+
+		        // sources:
+                // org.pentaho.di.ui.trans.steps.excelinput.ExcelInputDialog.java#L1157
+                // https://github.com/pentaho/pentaho-kettle/commit/e42ebc825b51403b4621796551027f1aa416f836#diff-6e7588dd0bd53a0fb82659c79fa86d78L205
 				new SelectionAdapter() {
 					@Override
 					public void widgetSelected( SelectionEvent e ) {
