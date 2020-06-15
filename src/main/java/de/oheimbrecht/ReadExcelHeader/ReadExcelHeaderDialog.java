@@ -869,7 +869,7 @@ public class ReadExcelHeaderDialog extends BaseStepDialog implements StepDialogI
 							}
 						} else {
 							FileDialog dialog = new FileDialog( shell, SWT.OPEN );
-							String[] extentions = new String[] { "*.xls;*.XLS;*.xlsx;*.XLSX;*.ods;*.ODS;", "*" };
+							String[] extentions = new String[] { "*.xlsx;*.XLSX;", "*" };
 
 							dialog.setFilterExtensions( extentions );
 							if ( wFilename.getText() != null ) {
