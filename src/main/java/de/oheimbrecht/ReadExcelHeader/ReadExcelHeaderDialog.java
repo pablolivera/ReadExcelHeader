@@ -869,7 +869,7 @@ public class ReadExcelHeaderDialog extends BaseStepDialog implements StepDialogI
 		// Listen to the Browse... button
 		wbbFilename.addSelectionListener(
 				new SelectionAdapterFileDialogTextVar(log, wFilename, transMeta, new SelectionAdapterOptions(
-						SelectionOperation.FILE_OR_FOLDER, new FilterType[] { FilterType.ALL }, FilterType.ALL)));
+						SelectionOperation.FILE_OR_FOLDER, new FilterType[] { FilterType.XLSX, FilterType.ALL }, FilterType.XLSX)));
 
 		// Detect X or ALT-F4 or something that kills this window and cancel the dialog
 		// properly
